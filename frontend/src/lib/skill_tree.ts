@@ -386,7 +386,7 @@ const tradeStatNames: { [key: number]: { [key: string]: string } } = {
 
 export const constructQuery = (jewel: number, conqueror: string, result: SearchWithSeed[]) => {
   const max_filter_length = 50;
-  const max_filters = 50;
+  const max_filters = 40;
   const max_query_length = max_filter_length * max_filters;
   const final_query = [];
   const stat = {
