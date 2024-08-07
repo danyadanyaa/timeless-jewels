@@ -385,8 +385,8 @@ const tradeStatNames: { [key: number]: { [key: string]: string } } = {
 };
 
 export const constructQuery = (jewel: number, conqueror: string, result: SearchWithSeed[]) => {
-  const max_filter_length = 1000;
-  const max_filters = 15;
+  const max_filter_length = 50;
+  const max_filters = 50;
   const max_query_length = max_filter_length * max_filters;
   const final_query = [];
   const stat = {
@@ -411,7 +411,7 @@ export const constructQuery = (jewel: number, conqueror: string, result: SearchW
 
     final_query.push(stat);
     // too many results case
-  } else if (result.length > 10000) {
+  } else if (result.length > max_query_length) {
     for (let i = 0; i < max_filters; i++) {
       final_query.push({
         type: 'count',
